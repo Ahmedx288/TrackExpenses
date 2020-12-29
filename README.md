@@ -22,21 +22,27 @@ This picture of many products that have been purchased at some time earlier cont
 and many other useful questions that make the user aware of his expenses and where his money goes.
 ___
 ## ERD
-![Conceptual Model](images/Conceptual%20Model_V3.png)
+![Conceptual Model](images/Conceptual%20Model_V4.png)
 ___
-## Logical Model
-Databas table reduced to the thrid form of normalization process
-|#|Table|Attributes|
-|--|--|--|
-|1|vendor|(**id**, name_)|
-|2|vendor_location|(**vendor_id, address**, city)|
-|3|customer|(**id**, name_)|
-|4|customer_phone|(**customer_id, phone_num**)|
-|5|category|(**id**, main_category, sub_category)|
-|6|product|(**id**, name_, trade_mark, **category_id**, weight_liter) |
-|7|customer_rating|(**customer_id, product_id**, rate, comments)|
-|8|invoice|(**id**, **customer_id, vendor_id**, payment_date, payment_time, total_pay, payment_method)|
-|9|invoice_item|(**invoice_id, product_id**, price, quantity, discount)|
+## Logical Model (Compact)
+Database tables reduced to the thrid form of normalization process
+|#|Table|Attributes|Keys
+|--|--|--|--|
+|1|vendor|(**id**, name_)|PK: id|
+|2|vendor_location|(**vendor_id**, **address**, city, address_notes)|PK: (vendor_id, address) |
+| |               |                                                 |FK: vendor_id->vendor(id)|
+|3|customer|(**id**, first_nameو last_name, age, gender)|PK: id|
+|4|customer_phone|(**customer_id**, **phone_num**)|PK: (customer_id, phone_num) |
+| |               |                               |FK: customer_id->customer(id)|
+|5|category|(**id**, main_category, sub_category)|PK: id|
+|6|product|(**id**, name_, trade_mark, **category_id**, weight_liter) |PK: id                       |
+| |               |                                                   |FK: category_id->category(id)|
+|7|customer_rating|(**customer_id**, **product_id**, rate, comments)|PK: (customer_id, product_id)                         |
+| |               |                                                 |FK: customer_id->customer(id), product_id->product(id)|
+|8|invoice|(**id**, **customer_id**, **vendor_id**, payment_date, payment_time, total_pay, payment_method)|PK: id                                              |
+| |               |                                                                                       |FK: customer_id->customer(id), vendor_id->vendor(id)|
+|9|invoice_item|(**invoice_id**, **product_id**, price, quantity, total_discount, total_pay)|PK: (invoice_id, product_id)                        |
+| |               |                                                                         |FK: invoice_id->invoice(id), product_id->product(id)|
 ___
 **Installations:**\
 You only need a server to host the website files and database to connect to it.
