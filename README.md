@@ -10,7 +10,7 @@ ___
 |**Prototypes**|Freehand sketches for Desktop and Mobile views.|
 ___
 ## Overview
-![The big picture of expenses and invoices](images/Screenshot_1.png)
+![The big picture of expenses and invoices](images/general_overview.png)
 
 This picture of many products that have been purchased at some time earlier contains very important data:
 - Who have bought some product?
