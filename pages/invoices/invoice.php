@@ -45,7 +45,7 @@
 
         <div class="row">
             <div class="col pb-3">
-                <h1  class="text-center">Invoice #<span class="invoice-number"></span></h1>        
+                <h1  class="text-center">Invoice #<span id="invoice-number"></span></h1>        
             </div>
         </div>
 
@@ -131,7 +131,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col invoice-item-row">
+                        <div id="invoice-item-row" class="col">
                             
                         </div>
                     </div>
@@ -142,12 +142,12 @@
             <div class="row mt-3">
                 <div class="col-3">
                     <label for="invoice-total-pay">Invoice Total Pay:</label>
-                    <input type="number" inputmode="decimal" class="form-control" id="unit-total" placeholder="xx.xx$" disabled>
+                    <input type="number" inputmode="decimal" class="form-control" id="invoice-total-pay" value="0" readonly>
                 </div>
 
                 <div class="col-3">
                     <label for="invoice-total-discount">Invoice Total Discount:</label>
-                    <input type="number" inputmode="decimal" class="form-control" id="unit-total" placeholder="xx.xx$" disabled>
+                    <input type="number" inputmode="decimal" class="form-control" id="invoice-total-discount" value="0" readonly>
                 </div>
 
                 <div class="col-3">

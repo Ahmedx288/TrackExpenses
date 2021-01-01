@@ -8,8 +8,10 @@
             die('Connect Error ('. mysqli_connect_errno() .') ' . mysqli_connect_error());
         } else {
             $res = $conn->query("SELECT * FROM product;");
-        
-            echo '<div class="row mt-1">';
+            
+            $item_no = $_POST['item_no'];
+
+            echo '<div class="row mt-1 item-no-' . $item_no  . '">';
 
                 echo '<div class="col-1">';
                     echo '<button type="button" class="btn btn-secondary remove-invoice-item">-</button>';
@@ -27,26 +29,25 @@
 
                 print '
                     <div class="col-2">
-                        <input type="number" inputmode="decimal" class="form-control" id="unit-price" placeholder="xx.xx$">
+                        <input type="number" inputmode="decimal" class="form-control unit-price" min="0" required>
                     </div>
 
                     <div class="col-2">
-                        <input type="number" class="form-control" id="unit-quantity">
+                        <input type="number" class="form-control unit-quantity" min="0" required>
                     </div>
 
                     <div class="col-2">
-                        <input type="number" inputmode="decimal" class="form-control" id="unit-discount" placeholder="xx.xx$">
+                        <input type="number" inputmode="decimal" class="form-control unit-discount" value="0" min="0" required>
                     </div>
 
                     <div class="col-2">
-                        <input type="number" inputmode="decimal" class="form-control" id="unit-total" placeholder="xx.xx$" disabled>
+                        <input type="number" inputmode="decimal" class="form-control unit-total" placeholder="xx.xx$" readonly>
                     </div>'
                 ;
 
             echo '</div>';
-	    }
-
-
+        }
+        
 	CloseCon($conn);
 
 ?>
