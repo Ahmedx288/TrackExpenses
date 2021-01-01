@@ -1,17 +1,15 @@
-<div class="row">
-    <div class="col-10 align-self-center">
+<?php
 
-        <form method="post" action="" id="contactform">
+    if(isset($_GET['page'])){
+        switch ($_GET['page']) {
+            case 'invoice':
+                include 'pages/invoices/invoice.php';
+            break;
 
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name">
-            </div>
-                
-            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit</button>
-        </form>
+            case 'report':
+                include 'pages/reports/report.php';
+            break;
+        } 
+    } else { include "pages/main-content.php";}
 
-        <div class="result"></div>
-
-    </div>
-</div>
+?>

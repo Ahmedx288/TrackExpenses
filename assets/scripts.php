@@ -6,3 +6,6 @@
 
 <!--third-party libraries-->
 <script src="<?php echo $base_url; ?>frameworks/js/aos.js"></script>
+
+<!--custom scripts-->
+<script src="<?php echo $base_url; ?>pages/invoices/invoice_scripts.js"></script>

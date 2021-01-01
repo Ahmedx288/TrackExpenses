@@ -103,8 +103,16 @@ CREATE TABLE invoice_item (
     FOREIGN KEY (invoice_id) REFERENCES invoice(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
-	
 
+
+DROP TRIGGER IF EXISTS calculat_invoice_item_total_pay;
+DELIMITER $$
+CREATE TRIGGER calculat_invoice_item_total_pay
+BEFORE INSERT ON invoice_item
+FOR EACH ROW BEGIN
+	SET NEW.total_pay = ( (NEW.price * NEW.quantity) - NEW.total_discount);
+END$$
+DELIMITER ;
 
 INSERT INTO vendor (name_)
 VALUES
@@ -163,19 +171,22 @@ VALUES
 	(1, 1, DATE '2020-09-04', '07:54:35', 'cash'),			#AHMED, Buys from Khair-zman on invoice 1
     (3, 2, DATE '2020-11-04', '10:45:17', 'electronic'),	#Hossam, Buys from Buffalo on invoice 2
     (2, 3, DATE '2020-09-07', '11:30:28', 'Cash');			#Eslam, Buys from Farghaly on invoice 3
-    
-INSERT INTO invoice_item
+ 
+
+INSERT INTO invoice_item (invoice_id, product_id, price, quantity, total_discount)
 VALUES
 	(1, 1, 19.99, 1, 0), 	#invoice 1, item_1(Trash Bags), price, quantity, discount
     (1, 2, 26, 1, 0), 		#invoice 1, item_2(Juhayna milk), price, quantity, discount
     (1, 3, 15.99, 1, 0), 	#invoice 1, item_3(Choclate), price, quantity, discount
     
-    (2, 4, 153.5, 1, 40), 	#invoice 2
+    (2, 4, 153.5, 1, 40), 	#invoice 2calculat_invoice_item_total_pay
     
     (3, 5, 13, 1, 0), 		#invoice 3
     (3, 6, 16, 1, 0), 		#invoice 3
     (3, 7, 14, 1, 0); 		#invoice 3
 
+    
+    
 Select invoice.customer_id, invoice.id as 'invoice #', sum(price) As 'Total', invoice.payment_method 
 FROM invoice JOIN invoice_item
 ON invoice.id = invoice_item.invoice_id
