@@ -28,15 +28,20 @@
                 echo '</div>';
 
                 print '
-                    <div class="col-2">
-                        <input type="number" inputmode="decimal" class="form-control unit-price" min="0" required>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">LE(£)</span>
+                            </div>
+                            <input type="number" inputmode="decimal" class="form-control unit-price" min="0" aria-label="Amount (to the nearest dollar)" required>
+                        </div>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col">
                         <input type="number" class="form-control unit-quantity" min="0" required>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col">
                         <input type="number" inputmode="decimal" class="form-control unit-discount" value="0" min="0" required>
                     </div>
 

@@ -10,7 +10,7 @@
         $res = $conn->query("SELECT * FROM vendor;");
         
         while($row = $res->fetch_assoc()) {
-            echo "<option vlaue=" . $row["id"] . ">" . $row['name_'] . "</option>";
+            echo "<option value=" . $row["id"] . ">" . $row['name_'] . "</option>";
         }
         
 	}

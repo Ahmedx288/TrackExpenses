@@ -1,47 +1,50 @@
-<?php include "assets/modal.php"; ?>
+<?php include "modals/new_vendor_modal.php"; ?>
+<?php include "modals/new_customer_modal.php"; ?>
+<?php include "modals/new_product_modal.php"; ?>
+<?php include "modals/new_product-category_modal.php"; ?>
+<?php include "modals/new_vendor-location_modal.php"; ?>
 
 <div class="row border">
-    <div class="col-3 border">
+    <div class="col-2 border">
         
         <div class="row">
             <div class="col my-3">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Add New Product</button>
+                <button id="add-new-vendor" type="button" class="btn btn-primary btn-lg btn-block"
+                    data-toggle="modal" data-target="#modal-new-vendor">Add New Vendor</button>
             </div>
         </div>
 
         <div class="row">
             <div class="col my-3">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Add Product Category</button>
+                <button id="add-new-customer" type="button" class="btn btn-primary btn-lg btn-block"
+                    data-toggle="modal" data-target="#modal-new-customer">Add New Customer</button>
             </div>
         </div>
 
         <div class="row">
             <div class="col my-3">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Add New Customer</button>
+                <button id="add-new-product" type="button" class="btn btn-primary btn-lg btn-block"
+                    data-toggle="modal" data-target="#modal-new-product">Add New Product</button>
             </div>
         </div>
 
         <div class="row">
             <div class="col my-3">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Add New Vendor</button>
+                <button id="add-new-product-category" type="button" class="btn btn-primary btn-lg btn-block"
+                    data-toggle="modal" data-target="#modal-new-product-category">Add Product Category</button>
             </div>
         </div>
 
         <div class="row">
             <div class="col my-3">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Add Vendor Location</button>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col my-3">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Rate a product</button>
+                <button id="add-new-vendor-location" type="button" class="btn btn-primary btn-lg btn-block"
+                    data-toggle="modal" data-target="#modal-new-vendor-location">Add Vendor Location</button>
             </div>
         </div>
 
     </div>
 
-    <div class="col-9">
+    <div class="col-10">
 
         <div class="row">
             <div class="col pb-3">
@@ -60,7 +63,7 @@
 
                     <div class="custom-control custom-control-inline">
 
-                        <select type="text" class="form-control customer-list" id="customer" required>
+                        <select type="text" class="form-control customer-list" id="customer-options" required>
 
                         </select>
 
@@ -86,7 +89,7 @@
 
                     <div class="custom-control custom-control-inline">
 
-                        <select type="text" class="form-control vendor-list" id="vendor" required>
+                        <select type="text" class="form-control vendor-list" id="vendor-options" required>
 
                         </select>
 
@@ -113,15 +116,15 @@
                             <p class="text-center">Product</p>
                         </div>
 
-                        <div class="col-2">
+                        <div class="col-3">
                             <p class="text-center">Price</p>
                         </div>
 
-                        <div class="col-2">
+                        <div class="col">
                             <p class="text-center">Quantity</p>
                         </div>
 
-                        <div class="col-2">
+                        <div class="col">
                             <p class="text-center">Discount</p>
                         </div>
 

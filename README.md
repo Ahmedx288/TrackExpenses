@@ -10,7 +10,7 @@ ___
 |**Prototypes**|Freehand sketches for Desktop and Mobile views.|
 ___
 ## Overview
-![The big picture of expenses and invoices](images/general_overview.png)
+![The big picture of expenses and invoices](database/images/general_overview.png)
 
 This picture of many products that have been purchased at some time earlier contains very important data:
 - Who have bought some product?
@@ -22,7 +22,7 @@ This picture of many products that have been purchased at some time earlier cont
 and many other useful questions that make the user aware of his expenses and where his money goes.
 ___
 ## ERD
-![Conceptual Model](images/Conceptual%20Model_V4.png)
+![Conceptual Model](database/images/Conceptual%20Model_V4.png)
 ___
 ## Logical Model (Compact)
 Database tables reduced to the thrid form of normalization process
