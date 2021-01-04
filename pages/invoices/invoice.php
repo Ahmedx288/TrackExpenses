@@ -3,6 +3,7 @@
 <?php include "modals/new_product_modal.php"; ?>
 <?php include "modals/new_product-category_modal.php"; ?>
 <?php include "modals/new_vendor-location_modal.php"; ?>
+<?php include "modals/new_invoice-type_modal.php"; ?>
 
 <div class="row border">
     <div class="col-2 border">
@@ -42,6 +43,13 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col my-3">
+                <button id="add-new-invoice-type" type="button" class="btn btn-primary btn-lg btn-block"
+                    data-toggle="modal" data-target="#modal-new-invoice-type">Add New Invoice Type</button>
+            </div>
+        </div>
+
     </div>
 
     <div class="col-10">
@@ -59,11 +67,11 @@
 
                 <div class="col-6">
 
-                    <label for="customer">Customer:</label>
+                    <label for="customer-options">Customer:</label>
 
                     <div class="custom-control custom-control-inline">
 
-                        <select type="text" class="form-control customer-list" id="customer-options" required>
+                        <select type="text" class="form-control" id="customer-options" required>
 
                         </select>
 
@@ -81,15 +89,15 @@
 
             </div>
 
-            <div class="row pt-1">
+            <div class="row mt-2">
                 
                 <div class="col-6">
                 
-                    <label for="vendor">Vendor:</label>
+                    <label for="vendor-options">Vendor:</label>
 
                     <div class="custom-control custom-control-inline">
 
-                        <select type="text" class="form-control vendor-list" id="vendor-options" required>
+                        <select type="text" class="form-control" id="vendor-options" required>
 
                         </select>
 
@@ -101,6 +109,34 @@
                     <label for="time-purchased">Time:</label>
                     <input type="time" id="time-purchased" name="time-purchased" required>
                 </div>
+
+            </div>
+
+            <div class="row mt-2">
+                
+                <div class="col-6">
+                
+                    <label for="vendor">Location:</label>
+
+                    <div class="custom-control custom-control-inline">
+
+                        <select type="text" class="form-control" id="vendor-location-options" required>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                    <label for="invoice-type-options">Invoice type:</label>
+
+                    <div class="custom-control custom-control-inline">
+
+                        <select type="text" class="form-control" id="invoice-type-options" required>
+
+                        </select>
+
+                    </div>
 
             </div>
 

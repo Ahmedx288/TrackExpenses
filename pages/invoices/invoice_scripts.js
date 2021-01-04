@@ -32,7 +32,7 @@ $('#invoice-item-row').on('click', function (e) {
     }
 });
 
-//On page load, refresh the customer, vendor, invoice number and products category data.
+//On page load, refresh the customer, vendor, invoice number, products category and invoice types data.
 $(document).ready(
     function () {
         //update customer options
@@ -75,6 +75,17 @@ $(document).ready(
                 $('#new-product-category').html(data);
             }
         });
+
+        ////update current invoice types
+        $.ajax({
+            type: "GET",
+            url: "pages/invoices/functions/update_invoice_types.php",
+
+            success: function (data) {
+                $('#invoice-type-options').html(data);
+            }
+        });
+        
     }
 );
 
@@ -105,6 +116,24 @@ function calculate_invoice(){
         invoice_total_discount[0].value = 0;
     }
 }
+
+//With every change in the vendor selection update the location list to the available locations
+$("#vendor-options").change(
+    function () {
+        let vendor_id = $('#vendor-options').val();
+
+        //update the location list
+        $.ajax({
+            type: "POST",
+            url: "pages/invoices/functions/update_vendor_locations.php",
+            data: { "vendor_id": vendor_id },
+
+            success: function (data) {
+                $('#vendor-location-options').html(data);
+            }
+        });
+    }
+);
 
 //adding new vendor to the database. (also update the vendor options simultaneously)
 $('#query-new-vendor').click(
@@ -254,7 +283,7 @@ $('#query-new-product-category').click(
     }
 );
 
-//adding new product to the database.
+//adding new vendor location to the database. (also update the vendor location options simultaneously)
 $('#query-new-vendor-location').click(
     function (e) {
         e.preventDefault();
@@ -282,6 +311,50 @@ $('#query-new-vendor-location').click(
 
             success: function (data) {
                 $('#result-add-new-vendor-location').append(data);
+
+                //update the location list
+                $.ajax({
+                    type: "POST",
+                    url: "pages/invoices/functions/update_vendor_locations.php",
+                    data: { "vendor_id": vendor_id },
+
+                    success: function (data) {
+                        $('#vendor-location-options').html(data);
+                    }
+                });
+            }
+        });
+
+    }
+);
+
+//adding new invoice type to the database. (also update the invoice type options simultaneously)
+$('#query-new-invoice-type').click(
+    function (e) {
+        e.preventDefault();
+
+        $('#result-add-new-invoice-type').children().remove();
+
+        //form variables
+        let new_type = $('#new-invoice-type').val();
+
+        $.ajax({
+            type: "POST",
+            url: "pages/invoices/functions/add_new_invoice_type.php",
+            data: { "new_type": new_type },
+
+            success: function (data) {
+                $('#result-add-new-invoice-type').append(data);
+
+                ////update current invoice types
+                $.ajax({
+                    type: "GET",
+                    url: "pages/invoices/functions/update_invoice_types.php",
+
+                    success: function (data) {
+                        $('#invoice-type-options').html(data);
+                    }
+                });
             }
         });
 

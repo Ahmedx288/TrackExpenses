@@ -7,11 +7,14 @@
     if (mysqli_connect_error()){
         die('Connect Error ('. mysqli_connect_errno() .') ' . mysqli_connect_error());
     } else {
-        $res = $conn->query("SELECT * FROM vendor;");
+        $vendor_id = $_POST['vendor_id'];
+
+        $res = $conn->query("SELECT * FROM location
+                             WHERE vendor_id = $vendor_id;");
         
         echo "<option></option>";
         while($row = $res->fetch_assoc()) {
-            echo "<option value=" . $row["id"] . ">" . $row['name_'] . "</option>";
+            echo "<option value=" . $row["id"] . ">" . $row['address'] . "</option>";
         }
         
 	}
