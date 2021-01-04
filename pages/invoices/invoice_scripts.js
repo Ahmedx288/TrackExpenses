@@ -136,15 +136,26 @@ $("#vendor-options").change(
 );
 
 //adding new vendor to the database. (also update the vendor options simultaneously)
-$('#query-new-vendor').click(
-    function (e) {
-        e.preventDefault();
-        
+$('#form-add-new-vendor').validate({
+    rules: {
+        "new-vendor-name": {
+            required: true,
+            minlength: 1
+        }          
+    },
+
+    messages: {
+        "new-vendor-name": {
+            required: 'Please Enter a vendor name',
+            minlength: "Your data must be at least 1 characters"
+        }
+    },
+
+    submitHandler: function () {
         $('#result-add-new-vendor').children().remove();
 
         //form variables
         let new_vendor = $('#new-vendor-name').val();
-
 
         $.ajax({
             type: "POST",
@@ -166,128 +177,35 @@ $('#query-new-vendor').click(
                 });
             }
         });
-
-    }
-);
-
-//adding new customer to the database. (also update the customer options simultaneously)
-$('#query-new-customer').click(
-    function (e) {
-        e.preventDefault();
-
-        $('#result-add-new-customer').children().remove();
-
-        //form variables
-        let new_customer_fName = $('#new-customer-fName').val();
-        let new_customer_lName = $('#new-customer-lName').val();
-        let new_customer_age = $('#new-customer-age').val();
-        let new_customer_gender = $('#new-customer-gender').val();
-        
-        $.ajax({
-            type: "POST",
-            url: "pages/invoices/functions/add_new_customer.php",
-            data:
-            {
-                "fName": new_customer_fName,
-                "lName": new_customer_lName,
-                "age": new_customer_age,
-                "gender": new_customer_gender,
-            },
-
-            success: function (data) {
-                $('#result-add-new-customer').append(data);
-
-                //update customer options
-                $.ajax({
-                    type: "GET",
-                    url: "pages/invoices/functions/update_customers.php",
-
-                    success: function (data) {
-                        $('#customer-options').html(data);
-                    }
-                });
-            }
-        });
-
-    }
-);
-
-//adding new product to the database.
-$('#query-new-product').click(
-    function (e) {
-        e.preventDefault();
-
-        $('#result-add-new-product').children().remove();
-
-        //form variables
-        let new_product_name = $('#new-product-name').val();
-        let new_product_category = $('#new-product-category').val();
-        let new_product_tradeMark = $('#new-product-trade-mark').val();
-        let new_product_weight = $('#new-product-weight-liter').val();
-
-        $.ajax({
-            type: "POST",
-            url: "pages/invoices/functions/add_new_product.php",
-            data:
-            {
-                "pName": new_product_name,
-                "pCategory": new_product_category,
-                "pTradeMark": new_product_tradeMark,
-                "pWeight": new_product_weight,
-            },
-
-            success: function (data) {
-                $('#result-add-new-product').append(data);
-            }
-        });
-
-    }
-);
-
-//adding new product-category to the database. (also update the product category options simultaneously)
-$('#query-new-product-category').click(
-    function (e) {
-        e.preventDefault();
-
-        $('#result-add-new-product-category').children().remove();
-
-        //form variables
-        let new_main_category = $('#new-product-main-category').val();
-        let new_sub_category = $('#new-product-sub-category').val();
-
-
-        $.ajax({
-            type: "POST",
-            url: "pages/invoices/functions/add_new_product_category.php",
-            data:
-            {
-                "main": new_main_category,
-                "sub": new_sub_category,
-            },
-
-            success: function (data) {
-                $('#result-add-new-product-category').append(data);
-
-                ////update current product types
-                $.ajax({
-                    type: "GET",
-                    url: "pages/invoices/functions/update_product_types.php",
-
-                    success: function (data) {
-                        $('#new-product-category').html(data);
-                    }
-                });
-            }
-        });
-
-    }
-);
+    },
+    
+});
 
 //adding new vendor location to the database. (also update the vendor location options simultaneously)
-$('#query-new-vendor-location').click(
-    function (e) {
-        e.preventDefault();
+$('#form-add-new-vendor-location').validate({
+    rules: {
+        "new-vendor-location-city": {
+            required: true,
+            minlength: 2
+        },
+        "new-vendor-location": {
+            required: true,
+            minlength: 2
+        }
+    },
 
+    messages: {
+        "new-vendor-location-city": {
+            required: 'Enter valid City',
+            minlength: "At least 2 characters abbreviation"
+        },
+        "new-vendor-location": {
+            required: 'Enter a valid location',
+            minlength: "At least 2 characters abbreviation"
+        }
+    },
+
+    submitHandler: function () {
         $('#result-add-new-vendor-location').children().remove();
 
         //form variables
@@ -324,15 +242,197 @@ $('#query-new-vendor-location').click(
                 });
             }
         });
-
     }
-);
+    
+});
+
+//adding new customer to the database. (also update the customer options simultaneously)
+$('#form-add-new-customer').validate({
+    rules: {
+        "new-customer-fName": {
+            required: true,
+            minlength: 2
+        },
+        "new-customer-lName": {
+            required: true,
+            minlength: 2
+        }
+    },
+
+    messages: {
+        "new-customer-fName": {
+            required: 'Enter valid City',
+            minlength: "At least 2 characters abbreviation"
+        },
+        "new-customer-lName": {
+            required: 'Enter a valid location',
+            minlength: "At least 2 characters abbreviation"
+        }
+    },
+
+    submitHandler: function () {
+        $('#result-add-new-customer').children().remove();
+
+        //form variables
+        let new_customer_fName = $('#new-customer-fName').val();
+        let new_customer_lName = $('#new-customer-lName').val();
+        let new_customer_age = $('#new-customer-age').val();
+        let new_customer_gender = $('#new-customer-gender').val();
+
+        $.ajax({
+            type: "POST",
+            url: "pages/invoices/functions/add_new_customer.php",
+            data:
+            {
+                "fName": new_customer_fName,
+                "lName": new_customer_lName,
+                "age": new_customer_age,
+                "gender": new_customer_gender,
+            },
+
+            success: function (data) {
+                $('#result-add-new-customer').append(data);
+
+                //update customer options
+                $.ajax({
+                    type: "GET",
+                    url: "pages/invoices/functions/update_customers.php",
+
+                    success: function (data) {
+                        $('#customer-options').html(data);
+                    }
+                });
+            }
+        });
+    },
+
+});
+
+//adding new product to the database.
+$('#form-add-new-product').validate({
+    rules: {
+        "new-product-name": {
+            required: true,
+            minlength: 2
+        },
+        "new-product-trade-mark": {
+            required: true,
+            minlength: 2
+        }
+    },
+
+    messages: {
+        "new-product-name": {
+            required: 'Enter a valid product name',
+            minlength: "At least 2 characters abbreviation"
+        },
+        "new-product-trade-mark": {
+            required: 'Enter a valid product tradeMark',
+            minlength: "At least 2 characters abbreviation"
+        }
+    },
+
+    submitHandler: function () {
+        $('#result-add-new-product').children().remove();
+
+        //form variables
+        let new_product_name = $('#new-product-name').val();
+        let new_product_category = $('#new-product-category').val();
+        let new_product_tradeMark = $('#new-product-trade-mark').val();
+        let new_product_weight = $('#new-product-weight-liter').val();
+
+        $.ajax({
+            type: "POST",
+            url: "pages/invoices/functions/add_new_product.php",
+            data:
+            {
+                "pName": new_product_name,
+                "pCategory": new_product_category,
+                "pTradeMark": new_product_tradeMark,
+                "pWeight": new_product_weight,
+            },
+
+            success: function (data) {
+                $('#result-add-new-product').append(data);
+            }
+        });
+    }
+});
+
+//adding new product-category to the database. (also update the product category options simultaneously)
+$('#form-add-new-product-category').validate({
+    rules: {
+        "new-product-main-category": {
+            required: true,
+            minlength: 2
+        },
+        "new-product-sub-category": {
+            required: true,
+            minlength: 2
+        }
+    },
+
+    messages: {
+        "new-product-main-category": {
+            required: 'Enter a valid Main category',
+            minlength: "At least 2 characters abbreviation"
+        },
+        "new-product-sub-category": {
+            required: 'Enter a valid Sub category',
+            minlength: "At least 2 characters abbreviation"
+        }
+    },
+    
+    submitHandler: function () {
+        $('#result-add-new-product-category').children().remove();
+
+        //form variables
+        let new_main_category = $('#new-product-main-category').val();
+        let new_sub_category = $('#new-product-sub-category').val();
+
+
+        $.ajax({
+            type: "POST",
+            url: "pages/invoices/functions/add_new_product_category.php",
+            data:
+            {
+                "main": new_main_category,
+                "sub": new_sub_category,
+            },
+
+            success: function (data) {
+                $('#result-add-new-product-category').append(data);
+
+                ////update current product types
+                $.ajax({
+                    type: "GET",
+                    url: "pages/invoices/functions/update_product_types.php",
+
+                    success: function (data) {
+                        $('#new-product-category').html(data);
+                    }
+                });
+            }
+        });
+    }
+});
 
 //adding new invoice type to the database. (also update the invoice type options simultaneously)
-$('#query-new-invoice-type').click(
-    function (e) {
-        e.preventDefault();
+$('#form-add-new-invoice-type').validate({
+    rules: {
+        "new-invoice-type": {
+            required: true,
+            minlength: 2
+        },
+    },
 
+    messages: {
+        "new-invoice-type": {
+            required: 'Enter a valid Main category',
+            minlength: "At least 2 characters abbreviation"
+        },
+    },
+    submitHandler: function () {
         $('#result-add-new-invoice-type').children().remove();
 
         //form variables
@@ -357,6 +457,5 @@ $('#query-new-invoice-type').click(
                 });
             }
         });
-
     }
-);
+});

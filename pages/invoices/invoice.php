@@ -17,6 +17,13 @@
 
         <div class="row">
             <div class="col my-3">
+                <button id="add-new-vendor-location" type="button" class="btn btn-primary btn-lg btn-block"
+                    data-toggle="modal" data-target="#modal-new-vendor-location">Add Vendor Location</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col my-3">
                 <button id="add-new-customer" type="button" class="btn btn-primary btn-lg btn-block"
                     data-toggle="modal" data-target="#modal-new-customer">Add New Customer</button>
             </div>
@@ -33,13 +40,6 @@
             <div class="col my-3">
                 <button id="add-new-product-category" type="button" class="btn btn-primary btn-lg btn-block"
                     data-toggle="modal" data-target="#modal-new-product-category">Add Product Category</button>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col my-3">
-                <button id="add-new-vendor-location" type="button" class="btn btn-primary btn-lg btn-block"
-                    data-toggle="modal" data-target="#modal-new-vendor-location">Add Vendor Location</button>
             </div>
         </div>
 

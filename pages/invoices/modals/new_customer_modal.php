@@ -52,13 +52,12 @@
                         </div>
                     </div>
 
-                </form>
-            </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="query-new-customer">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
 
-            
-           <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="query-new-customer">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </form>
             </div>
 
         </div>
