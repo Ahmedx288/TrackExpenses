@@ -61,48 +61,35 @@
         </div>
 
 
-        <form action="">
+        <form id="invoice-main-information">
         
             <div class="row">
 
                 <div class="col-6">
-
                     <label for="customer-options">Customer:</label>
-
                     <div class="custom-control custom-control-inline">
-
                         <select type="text" class="form-control" id="customer-options" required>
 
                         </select>
-
                     </div>
-
                 </div>
 
                 <div class="col-6">
-                    
                     <label for="date-purchased">Date:</label>
                     <input type="date" id="date-purchased" name="date-purchased" required>
-                    
-
                 </div>
 
             </div>
 
             <div class="row mt-2">
                 
-                <div class="col-6">
-                
+                <div class="col-6">            
                     <label for="vendor-options">Vendor:</label>
-
                     <div class="custom-control custom-control-inline">
-
                         <select type="text" class="form-control" id="vendor-options" required>
 
                         </select>
-
                     </div>
-
                 </div>
 
                 <div class="col-6">
@@ -114,33 +101,28 @@
 
             <div class="row mt-2">
                 
-                <div class="col-6">
-                
+                <div class="col-6">            
                     <label for="vendor">Location:</label>
-
                     <div class="custom-control custom-control-inline">
-
                         <select type="text" class="form-control" id="vendor-location-options" required>
 
                         </select>
-
                     </div>
-
                 </div>
 
+                <div class="col-6"> 
                     <label for="invoice-type-options">Invoice type:</label>
-
                     <div class="custom-control custom-control-inline">
-
                         <select type="text" class="form-control" id="invoice-type-options" required>
 
                         </select>
-
                     </div>
+                </div>
 
             </div>
 
             <div class="row mt-3 p-2 border">
+
                 <div class="col">
 
                     <div class="row">
@@ -176,9 +158,11 @@
                     </div>
                 
                 </div>
+
             </div>
 
             <div class="row mt-3">
+
                 <div class="col-3">
                     <label for="invoice-total-pay">Invoice Total Pay:</label>
                     <input type="number" inputmode="decimal" class="form-control" id="invoice-total-pay" value="0" readonly>
@@ -204,7 +188,6 @@
             </div>
 
         </form>
-    
-    
+
     </div>
 </div>

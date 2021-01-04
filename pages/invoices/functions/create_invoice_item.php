@@ -7,11 +7,12 @@
         if (mysqli_connect_error()){
             die('Connect Error ('. mysqli_connect_errno() .') ' . mysqli_connect_error());
         } else {
-            $res = $conn->query("SELECT * FROM product;");
             
             $item_no = $_POST['item_no'];
-
-            echo '<div class="row mt-1 item-no-' . $item_no  . '">';
+            
+            $res = $conn->query("SELECT * FROM product;");
+            
+            echo "<div class='row mt-1 item-no-$item_no'>";
 
                 echo '<div class="col-1">';
                     echo '<button type="button" class="btn btn-secondary remove-invoice-item">-</button>';

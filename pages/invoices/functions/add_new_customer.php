@@ -14,7 +14,7 @@
         $gender = $_POST['gender'];
 
         $res = $conn->query("INSERT INTO customer (first_name, last_name, age, gender)
-                             VALUES (\"$first_name\",\"$last_name\", $age, '$gender');");
+                             VALUES ('$first_name','$last_name', $age, '$gender');");
         
         if ($res) {
             print"  <div class='alert alert-success' role='alert'>
@@ -27,13 +27,11 @@
             
         }else {
             print"  <div class='alert alert-danger' role='alert'>
-                        echo 'Error: ' . $conn->error;
+                        Error: $conn->error;
                     </div>";
         }
 
-
 	}
-
 
 	CloseCon($conn);
 

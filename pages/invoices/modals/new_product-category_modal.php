@@ -21,7 +21,7 @@
                         </div>
 
                         <div class='col'>
-                            <label for='new-product-sub-category'>Main Category:</label>
+                            <label for='new-product-sub-category'>Sub Category:</label>
                             <input type='text' id='new-product-sub-category' name='new-product-sub-category' required>
                         </div>
                     </div>

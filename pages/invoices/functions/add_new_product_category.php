@@ -7,11 +7,12 @@
     if (mysqli_connect_error()){
         die('Connect Error ('. mysqli_connect_errno() .') ' . mysqli_connect_error());
     } else {
+        
         $main = $_POST['main'];
         $sub = $_POST['sub'];
 
         $res = $conn->query("INSERT INTO category (main_category, sub_category) 
-                             VALUES (\"$main\", \"$sub\");");
+                             VALUES ('$main', '$sub');");
         
         if ($res) {
             print"  <div class='alert alert-success' role='alert'>
@@ -24,13 +25,11 @@
             
         }else {
             print"  <div class='alert alert-danger' role='alert'>
-                        echo 'Error: ' . $conn->error;
+                        Error: $conn->error;
                     </div>";
         }
 
-
 	}
-
 
 	CloseCon($conn);
 

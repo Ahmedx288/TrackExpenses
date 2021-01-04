@@ -10,13 +10,12 @@
         
         $res = $conn->query("SELECT * FROM invoice_type;");
         
-        echo "<option></option>";
+        echo "<option> </option>";
         while($row = $res->fetch_assoc()) {
             echo "<option value=" . $row["id"] . ">" . $row['type_'] . "</option>";
         }
         
 	}
-
 
 	CloseCon($conn);
 

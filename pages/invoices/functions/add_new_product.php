@@ -14,7 +14,7 @@
         $weight = $_POST['pWeight'];
 
         $res = $conn->query("INSERT INTO product (name_ , trade_mark, category_id, weight_liter)
-                             VALUES (\"$name\",\"$trade_mark\", $category, $weight);");
+                             VALUES ('$name','$trade_mark', $category, $weight);");
         
         if ($res) {
             print"  <div class='alert alert-success' role='alert'>
@@ -29,7 +29,7 @@
             
         }else {
             print"  <div class='alert alert-danger' role='alert'>
-                        echo 'Error: ' . $conn->error;
+                        Error: $conn->error;
                     </div>";
         }
 

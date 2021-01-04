@@ -7,6 +7,7 @@
     if (mysqli_connect_error()){
         die('Connect Error ('. mysqli_connect_errno() .') ' . mysqli_connect_error());
     } else {
+
         $vendor_name = $_POST['vendor_name'];
         $vendor_id = $_POST['vendor_id'];
         $new_location = $_POST['new_location'];
@@ -31,9 +32,7 @@
                     </div>";
         }
 
-
 	}
-
 
 	CloseCon($conn);
 
