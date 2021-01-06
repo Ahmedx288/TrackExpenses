@@ -82,7 +82,7 @@ CREATE TABLE invoice_type (
 
 DROP TABLE IF EXISTS invoice;
 CREATE TABLE invoice (
-    id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL,
     customer_id INT NOT NULL,
     vendor_id INT NOT NULL,
     location_id INT NOT NULL,
@@ -115,10 +115,26 @@ CREATE TABLE invoice_item (
 
 
 DROP TRIGGER IF EXISTS calculat_invoice_item_total_pay;
-DELIMITER $$
+DELIMITER |
 CREATE TRIGGER calculat_invoice_item_total_pay
 BEFORE INSERT ON invoice_item
 FOR EACH ROW BEGIN
 	SET NEW.total_pay = ( (NEW.price * NEW.quantity) - NEW.total_discount);
-END$$
+END|
 DELIMITER ;
+
+DROP PROCEDURE IF EXISTS calculateInvoiceTotalPayment;
+DELIMITER |
+CREATE PROCEDURE calculateInvoiceTotalPayment(id INT)
+BEGIN
+	UPDATE invoice
+    SET total_payment = 
+						(SELECT SUM(total_pay)
+						 FROM invoice_item
+						 WHERE invoice_item.invoice_id = id
+						 GROUP BY invoice_id)
+	WHERE invoice.id = id;
+END |
+DELIMITER ;
+
+call calculateInvoiceTotalPayment(1);

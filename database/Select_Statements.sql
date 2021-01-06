@@ -1,4 +1,4 @@
-Select invoice.customer_id, invoice.id as 'invoice #', sum(price) As 'Total', invoice.payment_method
+Select invoice.customer_id, invoice.id as 'invoice #', total_payment, invoice.payment_method
 FROM invoice JOIN invoice_item
 ON invoice.id = invoice_item.invoice_id
 GROUP BY invoice.id;
