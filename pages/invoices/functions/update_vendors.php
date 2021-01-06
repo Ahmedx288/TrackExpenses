@@ -10,7 +10,7 @@
 
         $res = $conn->query("SELECT * FROM vendor;");
         
-        echo "<option> </option>";
+        echo '<option hidden disabled selected value=""> -- Select a Vendor -- </option>';
         while($row = $res->fetch_assoc()) {
             echo "<option value=" . $row["id"] . ">" . $row['name_'] . "</option>";
         }

@@ -10,7 +10,7 @@
         
         $res = $conn->query("SELECT * FROM invoice_type;");
         
-        echo "<option> </option>";
+        echo '<option hidden disabled selected value=""> -- Select a Type -- </option>';
         while($row = $res->fetch_assoc()) {
             echo "<option value=" . $row["id"] . ">" . $row['type_'] . "</option>";
         }

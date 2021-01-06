@@ -68,7 +68,7 @@
                 <div class="col-6">
                     <label for="customer-options">Customer:</label>
                     <div class="custom-control custom-control-inline">
-                        <select type="text" class="form-control" id="customer-options" required>
+                        <select type="text" class="form-control" id="customer-options" name="customer-options" required>
 
                         </select>
                     </div>
@@ -86,7 +86,7 @@
                 <div class="col-6">            
                     <label for="vendor-options">Vendor:</label>
                     <div class="custom-control custom-control-inline">
-                        <select type="text" class="form-control" id="vendor-options" required>
+                        <select type="text" class="form-control" id="vendor-options" name="vendor-options" required>
 
                         </select>
                     </div>
@@ -94,7 +94,7 @@
 
                 <div class="col-6">
                     <label for="time-purchased">Time:</label>
-                    <input type="time" id="time-purchased" name="time-purchased" required>
+                    <input type="time" id="time-purchased" name="time-purchased" value="00:00:01" required>
                 </div>
 
             </div>
@@ -104,7 +104,7 @@
                 <div class="col-6">            
                     <label for="vendor">Location:</label>
                     <div class="custom-control custom-control-inline">
-                        <select type="text" class="form-control" id="vendor-location-options" required>
+                        <select type="text" class="form-control" id="vendor-location-options" name="vendor-location-options" required>
 
                         </select>
                     </div>
@@ -113,7 +113,7 @@
                 <div class="col-6"> 
                     <label for="invoice-type-options">Invoice type:</label>
                     <div class="custom-control custom-control-inline">
-                        <select type="text" class="form-control" id="invoice-type-options" required>
+                        <select type="text" class="form-control" id="invoice-type-options" name="invoice-type-options" required>
 
                         </select>
                     </div>
@@ -152,7 +152,7 @@
                     </div>
 
                     <div class="row">
-                        <div id="invoice-item-row" class="col">
+                        <div class="col" id="invoice-item-row">
                             
                         </div>
                     </div>
@@ -175,8 +175,9 @@
 
                 <div class="col-3">
                     <label for="invoice-payment-method">Invoice Payment Method:</label>
-                        <select type="text" class="form-control" id="invoice-payment-method">
-                            <option value="cash" selected>Cash</option>
+                        <select type="text" class="form-control" id="invoice-payment-method" name="invoice-payment-method" required>
+                            <option hidden disabled selected value=""> -- Select a Method -- </option>
+                            <option value="cash">Cash</option>
                             <option value="electronic">Electronic</option>
                         </select>
                 </div>
@@ -189,5 +190,7 @@
 
         </form>
 
+        <div id="result-save-invoice">
+        </div>
     </div>
 </div>

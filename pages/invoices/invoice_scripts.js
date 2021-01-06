@@ -1,9 +1,12 @@
 let item_no = 1;
-var items_list_price;
-var items_list_quantity;
-var items_list_discount;
-var invoice_total_pay = $('#invoice-total-pay');
-var invoice_total_discount = $('#invoice-total-discount');
+let current_invoice_id;
+let items_invoiceItems_list;
+let items_unitPrice_list;
+let items_unitQuantity_list;
+let items_unitDiscount_list;
+let items_unitTotalPrice_list;
+let invoice_total_pay = $('#invoice-total-pay');
+let invoice_total_discount = $('#invoice-total-discount');
 
 //adding items to the invoice list to be committed.
 $('#add-invoice-item').click(
@@ -34,7 +37,7 @@ $('#invoice-item-row').on('click', function (e) {
 
 //On page load, refresh the customer, vendor, invoice number, products category and invoice types data.
 $(document).ready(
-    function () {
+    function () {    
         //update customer options
         $.ajax({
             type: "GET",
@@ -63,6 +66,7 @@ $(document).ready(
 
             success: function (data) {
                 $('#invoice-number').html(data);
+                current_invoice_id = parseInt(data);
             }
         });
 
@@ -93,24 +97,24 @@ $(document).ready(
 $('#invoice-item-row').change(calculate_invoice);
 //++++++++++++++++++++++++++++++
 function calculate_invoice(){
-    items_list_price = $('#invoice-item-row').find('.unit-price');
-    items_list_quantity = $('#invoice-item-row').find('.unit-quantity');
-    items_list_discount = $('#invoice-item-row').find('.unit-discount');
-    items_list_total = $('#invoice-item-row').find('.unit-total');
+    items_unitPrice_list = $('#invoice-item-row').find('.unit-price');
+    items_unitQuantity_list = $('#invoice-item-row').find('.unit-quantity');
+    items_unitDiscount_list = $('#invoice-item-row').find('.unit-discount');
+    items_unitTotalPrice_list = $('#invoice-item-row').find('.unit-total-price');
 
     let temp_sum = 0;
     let temp_discount = 0;
 
-    if (items_list_price.length > 0){
-        for (i = 0; i < items_list_price.length; i++) {
-            items_list_total[i].value = (parseFloat(items_list_price[i].value) * parseFloat(items_list_quantity[i].value) - parseFloat(items_list_discount[i].value)).toFixed(2);
+    if (items_unitPrice_list.length > 0){
+        for (i = 0; i < items_unitPrice_list.length; i++) {
+            items_unitTotalPrice_list[i].value = (parseFloat(items_unitPrice_list[i].value) * parseFloat(items_unitQuantity_list[i].value) - parseFloat(items_unitDiscount_list[i].value)).toFixed(2);
 
-            temp_sum += parseFloat(items_list_total[i].value);
-            temp_discount += parseFloat(items_list_discount[i].value);
-
-            invoice_total_pay[0].value = temp_sum;
-            invoice_total_discount[0].value = temp_discount;
+            temp_sum += parseFloat(items_unitTotalPrice_list[i].value);
+            temp_discount += parseFloat(items_unitDiscount_list[i].value);
         }
+        
+        invoice_total_pay[0].value = temp_sum;
+        invoice_total_discount[0].value = temp_discount;
     } else {
         invoice_total_pay[0].value = 0;
         invoice_total_discount[0].value = 0;
@@ -458,4 +462,72 @@ $('#form-add-new-invoice-type').validate({
             }
         });
     }
+});
+
+//TRANSACT an invoice and all its items. (also update the invoice number simultaneously)
+$('#invoice-main-information').validate({
+    submitHandler: function () {
+        $('#result-save-invoice').children().remove();
+
+        //form variables
+        //(1) Invoice Table part
+        let next_invoice_id = parseInt($('#invoice-number').text());
+        let customer_id = $('#customer-options').val();
+        let vendor_id = $('#vendor-options').val();
+        let vendor_location_id = $('#vendor-location-options').val();
+        let invoice_date = $('#date-purchased').val();
+        let invoice_time = $('#time-purchased').val();
+        let invoice_type_id = $('#invoice-type-options').val();
+        let payment_method = $('#invoice-payment-method').val();
+
+        //(2) Invoice Items Part (*Select all Jquery Objects and extract only needed values
+        //                        *equls to loop over the collection and append values in a new array)
+        items_invoiceItems_list = $('#invoice-item-row').find('.unit-item').map((i, e) => e.value).get();
+        items_unitPrice_list = $('#invoice-item-row').find('.unit-price').map((i, e) => e.value).get();
+        items_unitQuantity_list = $('#invoice-item-row').find('.unit-quantity').map((i, e) => e.value).get();
+        items_unitDiscount_list = $('#invoice-item-row').find('.unit-discount').map((i, e) => e.value).get();
+        //total price for each unit is updated in the database using a triggr
+        //invoice total payment is updated using a procedure that we call.
+        
+        $.ajax({
+            type: "POST",
+            url: "pages/invoices/functions/TRANSACT_INVOICE.php",
+            data: {
+                "invoice_id": next_invoice_id, 
+                "customer_id": customer_id,
+                "vendor_id": vendor_id,
+                "vendor_location_id": vendor_location_id,
+                "invoice_date": invoice_date,
+                "invoice_time": invoice_time,
+                "invoice_type_id": invoice_type_id,
+                "payment_method": payment_method,
+                "invoiceItems_list": items_invoiceItems_list,
+                "unitPrice_list": items_unitPrice_list,
+                "unitQuantity_list": items_unitQuantity_list,
+                "unitDiscount_list": items_unitDiscount_list,
+            },
+
+            success: function (data) {
+                $('#result-save-invoice').append(data);
+
+                //update current invoice number
+                $.ajax({
+                    type: "GET",
+                    url: "pages/invoices/functions/update_invoice_number.php",
+
+                    success: function (data) {
+                        $('#invoice-number').html(data);
+                        current_invoice_id = parseInt(data);
+                        
+                        //reset the invoice fields only if the subbmission is done without errors.
+                        if (current_invoice_id != next_invoice_id){
+                            $('#invoice-main-information')[0].reset(); //reset all fields
+                            $('#invoice-item-row').find('.row').remove(); //clear invoice items
+                        }
+                    }
+                });
+            }
+        });
+    }
+
 });

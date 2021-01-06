@@ -9,7 +9,7 @@
     } else {
 
         $res = $conn->query("SELECT * FROM customer;");
-        
+        echo '<option hidden disabled selected value=""> -- Select a Customer -- </option>';
         while($row = $res->fetch_assoc()) {
             echo "<option value=" . $row["id"] . ">" . $row['first_name'] . " " . $row['last_name'] . "</option>";
         }
