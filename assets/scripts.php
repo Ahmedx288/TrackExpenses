@@ -1,12 +1,11 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<!-- <script src="<?php echo $base_url; ?>frameworks/js/jquery-3.5.1.slim.min.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="<?php echo $base_url; ?>frameworks/js/jquery.min.js"></script>
+<script src="<?php echo $base_url; ?>frameworks/js/jquery.validate.min.js"></script>
+<script src="<?php echo $base_url; ?>frameworks/js/popper.min.js"></script>
 <script src="<?php echo $base_url; ?>frameworks/js/bootstrap.min.js"></script>
 
-<!--third-party libraries-->
-<script src="<?php echo $base_url; ?>frameworks/js/aos.js"></script>
-
-<!--custom scripts-->
-<script src="<?php echo $base_url; ?>pages/invoices/invoice_scripts.js"></script>
+<!--custom invoice scripts-->
+<script src="<?php echo $base_url; ?>pages/invoices/scripts/main_dynamic_updates.js"></script>
+<script src="<?php echo $base_url; ?>pages/invoices/scripts/add_new_modals_scripts.js"></script>
+<script src="<?php echo $base_url; ?>pages/invoices/scripts/invoice_items_functionality.js"></script>
+<script src="<?php echo $base_url; ?>pages/invoices/scripts/transaction_script.js"></script>

@@ -5,7 +5,5 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="<?php echo $base_url; ?>frameworks/css/bootstrap.min.css">
 
-<!-- Animate-on-scroll CSS -->
-<link rel="stylesheet" href="<?php echo $base_url; ?>frameworks/css/aos.css" />
 
 <?php $base_url = "http://localhost/TrackExpenses/"; ?>

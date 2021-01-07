@@ -1,6 +1,6 @@
 <?php
 
-	require "../../../assets/establish_close_connection.php";
+	require "../../../../assets/establish_close_connection.php";
 
 	$conn = OpenCon();
 
@@ -8,19 +8,17 @@
         die('Connect Error ('. mysqli_connect_errno() .') ' . mysqli_connect_error());
     } else {
         
-        $main = $_POST['main'];
-        $sub = $_POST['sub'];
+        $type = $_POST['new_type'];
 
-        $res = $conn->query("INSERT INTO category (main_category, sub_category) 
-                             VALUES ('$main', '$sub');");
+        $res = $conn->query("INSERT INTO invoice_type (type_) VALUES ('$type');");
         
         if ($res) {
             print"  <div class='alert alert-success' role='alert'>
-                        The product category \"${main}: ${sub}\" has been successfully added.
+                        The invoice type \"${type}\" has been successfully added.
                     </div>";
-        } else if ($conn->error == "Duplicate entry '${main}-${sub}' for key 'main_category'"){
+        } else if ($conn->error == "Duplicate entry '$type' for key 'type_'"){
             print"  <div class='alert alert-warning' role='alert'>
-                        The product category \"${main}: ${sub}\" is already exists.
+                        The invoice type \"${type}\" is already exists.
                     </div>";
             
         }else {

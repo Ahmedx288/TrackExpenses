@@ -1,11 +1,11 @@
 <!-- Modal -->
-<div class="modal fade" id="modal-new-invoice-type" tabindex="-1" role="dialog" aria-labelledby="new invoice type" aria-hidden="true">
+<div class="modal fade" id="modal-new-invoice-type" tabindex="-1" role="dialog" aria-labelledby="new-invoice-type-lable" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
 
         <div class="modal-content">
 
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Adding New Invoice Type</h5>
+                <h5 class="modal-title" id="new-invoice-type-lable">Adding New Invoice Type</h5>
                 <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

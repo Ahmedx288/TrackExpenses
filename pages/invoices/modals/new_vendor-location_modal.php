@@ -1,11 +1,11 @@
 <!-- Modal -->
-<div class="modal fade" id="modal-new-vendor-location" tabindex="-1" role="dialog" aria-labelledby="new vendor location" aria-hidden="true">
+<div class="modal fade" id="modal-new-vendor-location" tabindex="-1" role="dialog" aria-labelledby="new-vendor-location-lable" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
 
         <div class="modal-content">
 
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Adding New Vendor Location</h5>
+                <h5 class="modal-title" id="new-vendor-location-lable">Adding New Vendor Location</h5>
                 <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -15,11 +15,11 @@
                 <form id="form-add-new-vendor-location">
                     <div class="row">
                         <div class="col">
-                            <label for="vendor">Vendor:</label>
+                            <label for="vendor-options-modal">Vendor:</label>
 
                             <div class="custom-control custom-control-inline">
 
-                                <select type="text" class="form-control vendor-list" id="vendor-options-modal" required>
+                                <select class="form-control vendor-list" id="vendor-options-modal" required>
 
                                 </select>
 

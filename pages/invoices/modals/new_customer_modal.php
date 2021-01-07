@@ -1,11 +1,11 @@
 <!-- Modal -->
-<div class="modal fade" id="modal-new-customer" tabindex="-1" role="dialog" aria-labelledby="new customer" aria-hidden="true">
+<div class="modal fade" id="modal-new-customer" tabindex="-1" role="dialog" aria-labelledby="new-customer-lable" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
 
         <div class="modal-content">
 
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Adding New Customer</h5>
+                <h5 class="modal-title" id="new-customer-lable">Adding New Customer</h5>
                 <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -24,7 +24,8 @@
                             <label for='new-customer-gender'>Gender:</label>
 
                             <div class="custom-control custom-control-inline">
-                                <select type="text" class="form-control" id="new-customer-gender" required>
+                                <select class="form-control" id="new-customer-gender" required>
+                                    <option hidden disabled selected value=""> -- Select a Gender -- </option>
                                     <option value='male'>Male</option>
                                     <option value='female'>Female</option>
                                 </select>

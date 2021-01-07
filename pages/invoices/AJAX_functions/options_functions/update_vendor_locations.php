@@ -1,6 +1,6 @@
 <?php
 
-	require "../../../assets/establish_close_connection.php";
+	require "../../../../assets/establish_close_connection.php";
 
 	$conn = OpenCon();
 

@@ -1,11 +1,11 @@
 <!-- Modal -->
-<div class="modal fade" id="modal-new-vendor" tabindex="-1" role="dialog" aria-labelledby="new vendor" aria-hidden="true">
+<div class="modal fade" id="modal-new-vendor" tabindex="-1" role="dialog" aria-labelledby="new-vendor-lable" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
 
         <div class="modal-content">
 
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Adding New Vendor</h5>
+                <h5 class="modal-title" id="new-vendor-lable">Adding New Vendor</h5>
                 <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

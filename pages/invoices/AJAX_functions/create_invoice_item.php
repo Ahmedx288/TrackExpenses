@@ -21,11 +21,9 @@
                 echo '<div class="col-3">';
                     echo "<select type='text' class='form-control unit-item' id='item-no-${item_no}' name='item-no-${item_no}' required>";
                             echo '<option hidden disabled selected value=""> -- Select an Item -- </option>';
-
                         while($row = $res->fetch_assoc()) {
                             echo "<option value=" . $row["id"] . ">" . $row['name_'] . "</option>";
                         }
-
                     echo '</select>';
                 echo '</div>';
 
@@ -36,7 +34,7 @@
                                 <span class='input-group-text'>LE(£)</span>
                             </div>
                             <input type='number' inputmode='decimal' class='form-control unit-price'
-                                min='0' aria-label='Amount (to the nearest LE)' name='price-of-item${item_no}' required>
+                                value='1' min='0' aria-label='Amount (to the nearest LE)' name='price-of-item${item_no}' required>
                         </div>
                     </div>
 

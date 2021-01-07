@@ -1,24 +1,26 @@
 <?php
 
-	require "../../../assets/establish_close_connection.php";
+	require "../../../../assets/establish_close_connection.php";
 
 	$conn = OpenCon();
 
     if (mysqli_connect_error()){
         die('Connect Error ('. mysqli_connect_errno() .') ' . mysqli_connect_error());
     } else {
+        
+        $main = $_POST['main'];
+        $sub = $_POST['sub'];
 
-        $new_vendor = $_POST['new_vendor'];
-
-        $res = $conn->query("INSERT INTO vendor (name_) VALUES ('$new_vendor');");
+        $res = $conn->query("INSERT INTO category (main_category, sub_category) 
+                             VALUES ('$main', '$sub');");
         
         if ($res) {
             print"  <div class='alert alert-success' role='alert'>
-                        The vendor \"${new_vendor}\" has been successfully added.
+                        The product category \"${main}: ${sub}\" has been successfully added.
                     </div>";
-        } else if ($conn->error == "Duplicate entry '$new_vendor' for key 'name_'"){
+        } else if ($conn->error == "Duplicate entry '${main}-${sub}' for key 'main_category'"){
             print"  <div class='alert alert-warning' role='alert'>
-                        The vendor \"${new_vendor}\" is already exists. Did you mean to add a new location?
+                        The product category \"${main}: ${sub}\" is already exists.
                     </div>";
             
         }else {
