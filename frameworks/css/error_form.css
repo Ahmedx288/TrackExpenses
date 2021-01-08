@@ -1,0 +1,10 @@
+select.error{
+    border: #F00 1px solid;
+}
+input.error{
+    border: #F00 1px solid;
+}
+div.error {
+  background-color: rgb(252, 252, 213);
+  color: red;
+}

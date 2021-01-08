@@ -14,15 +14,19 @@
             <div class="modal-body">
                 <form id="form-add-new-product-category">
 
-                    <div class='row'>
+                    <div class='row my-3'>
                         <div class='col'>
                             <label for='new-product-main-category'>Main Category:</label>
-                            <input type='text' id='new-product-main-category' name='new-product-main-category' required>
+                            <div class="custom-control custom-control-inline"> <!--positioning error message-->
+                                <input type='text' id='new-product-main-category' name='new-product-main-category' required>
+                            </div>
                         </div>
 
                         <div class='col'>
                             <label for='new-product-sub-category'>Sub Category:</label>
-                            <input type='text' id='new-product-sub-category' name='new-product-sub-category' required>
+                            <div class="custom-control custom-control-inline"> <!--positioning error message-->
+                                <input type='text' id='new-product-sub-category' name='new-product-sub-category' required>
+                            </div>
                         </div>
                     </div>
 

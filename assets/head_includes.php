@@ -5,5 +5,8 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="<?php echo $base_url; ?>frameworks/css/bootstrap.min.css">
 
+<!-- Custom CSS -->
+<link rel="stylesheet" href="<?php echo $base_url; ?>frameworks/css/error_form.css">
+
 
 <?php $base_url = "http://localhost/TrackExpenses/"; ?>

@@ -9,7 +9,8 @@
     } else {
         
         $res = $conn->query("SELECT * FROM category;");
-        
+
+        echo '<option hidden disabled selected value=""> -- Select a Category -- </option>';
         while($row = $res->fetch_assoc()) {
             echo "<option value=" . $row["id"] . ">" . $row['main_category'] . ": " . $row['sub_category'] . "</option>";
         }

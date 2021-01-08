@@ -62,6 +62,10 @@ $('#invoice-main-information').validate({
                 });
             }
         });
+    },
+    errorElement: "div",
+    errorPlacement: function (error, element){
+        error.insertAfter(element.parent());
     }
 
 });

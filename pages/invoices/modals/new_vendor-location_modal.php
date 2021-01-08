@@ -28,13 +28,17 @@
 
                         <div class='col'>
                             <label for='new-vendor-location-city'>City of Location:</label>
-                            <input type='text' id='new-vendor-location-city' name='new-vendor-location-city' required>
+                            <div class="custom-control custom-control-inline"> <!--positioning error message-->
+                                <input type='text' id='new-vendor-location-city' name='new-vendor-location-city' required>
+                            </div>
                         </div>
                     </div>
                     <div class='row'>
                         <div class='col offset-6'>
                             <label for='new-vendor-location'>Location:</label>
-                            <input type='text' id='new-vendor-location' name='new-vendor-location' required>
+                            <div class="custom-control custom-control-inline"> <!--positioning error message-->
+                                <input type='text' id='new-vendor-location' name='new-vendor-location' required>
+                            </div>
                         </div>
                     </div>
 
@@ -42,7 +46,9 @@
                         <div class='col'>
                             <div class="form-group">
                                 <label for='new-vendor-location-notes'>Location notes:</label>
-                                <textarea class="form-control" id="new-vendor-location-notes" rows="2" maxlength="250"></textarea>
+                                <div class="dummy"> <!--positioning error message-->
+                                    <textarea class="form-control" id="new-vendor-location-notes" rows="2" maxlength="250"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>

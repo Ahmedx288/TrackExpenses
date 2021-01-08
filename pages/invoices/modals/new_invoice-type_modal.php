@@ -14,10 +14,12 @@
             <div class="modal-body">
                 <form id="form-add-new-invoice-type">
 
-                    <div class='row'>
+                    <div class='row my-2'>
                         <div class='col'>
                             <label for='new-invoice-type'>New Type:</label>
-                            <input type='text' id='new-invoice-type' name='new-invoice-type' required>
+                            <div class="custom-control custom-control-inline"> <!--positioning error message-->
+                                <input type='text' id='new-invoice-type' name='new-invoice-type' required>
+                            </div>
                         </div>
                     </div>
 

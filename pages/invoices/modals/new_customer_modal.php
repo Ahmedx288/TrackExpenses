@@ -17,13 +17,15 @@
                     <div class='row'>
                         <div class='col'>
                             <label for='new-customer-fName'>First Name:</label>
-                            <input type='text' id='new-customer-fName' name='new-customer-fName' onkeypress="return /[a-z]/i.test(event.key)" required>
+                            <div class="custom-control custom-control-inline"> <!--positioning error message-->
+                                <input type='text' id='new-customer-fName' name='new-customer-fName' onkeypress="return /[a-z]/i.test(event.key)" required>
+                            </div>
                         </div>
 
                         <div class='col'>
                             <label for='new-customer-gender'>Gender:</label>
 
-                            <div class="custom-control custom-control-inline">
+                            <div class="custom-control custom-control-inline"> <!--positioning error message-->
                                 <select class="form-control" id="new-customer-gender" required>
                                     <option hidden disabled selected value=""> -- Select a Gender -- </option>
                                     <option value='male'>Male</option>
@@ -34,16 +36,20 @@
 
                     </div>
 
-                    <div class='row'>
+                    <div class='row my-4'>
 
                         <div class='col'>
                             <label for='new-customer-lName'>Last Name:</label>
-                            <input type='text' id='new-customer-lName' name='new-customer-lName' onkeypress="return /[a-z]/i.test(event.key)" required>
+                            <div class="custom-control custom-control-inline"> <!--positioning error message-->
+                                <input type='text' id='new-customer-lName' name='new-customer-lName' onkeypress="return /[a-z]/i.test(event.key)" required>
+                            </div>
                         </div>
 
                         <div class='col'>
                             <label for='new-customer-age'>Age:</label>
-                            <input type='number' min="5" id='new-customer-age' name='new-customer-age' required>
+                            <div class="custom-control custom-control-inline"> <!--positioning error message-->
+                                <input type='number' min="5" id='new-customer-age' name='new-customer-age' required>
+                            </div>
                         </div>
                     </div>
 

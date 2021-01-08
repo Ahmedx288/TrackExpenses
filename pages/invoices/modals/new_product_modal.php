@@ -17,7 +17,9 @@
                     <div class='row'>
                         <div class='col-6'>
                             <label for='new-product-name'>Product Name:</label>
-                            <input type='text' id='new-product-name' name='new-product-name' required>
+                            <div class="custom-control custom-control-inline"> <!--positioning error message-->
+                                <input type='text' id='new-product-name' name='new-product-name' required>
+                            </div>
                         </div>
 
                         <div class='col-6'>
@@ -36,12 +38,16 @@
 
                         <div class='col'>
                             <label for='new-product-trade-mark'>Trade Mark:</label>
-                            <input type='text' id='new-product-trade-mark' name='new-product-trade-mark' onkeypress="return /[a-z]/i.test(event.key)" required>
+                            <div class="custom-control custom-control-inline"> <!--positioning error message-->
+                                <input type='text' id='new-product-trade-mark' name='new-product-trade-mark' onkeypress="return /[a-z]/i.test(event.key)" required>
+                            </div>
                         </div>
 
                         <div class='col'>
                             <label for='new-product-weight-liter'>Weight\Liter:</label>
-                            <input type='number' min="0" id='new-product-weight-liter' aria-describedby="weightHelp" name='new-product-weight-liter' required>
+                            <div class="custom-control custom-control-inline"> <!--positioning error message-->
+                                <input type='number' min="0" id='new-product-weight-liter' aria-describedby="weightHelp" name='new-product-weight-liter' required>
+                            </div>
                             <small id="weightHelp" class="form-text text-muted">Type 0 for Not Applicable.</small>
                         </div>
                     </div>

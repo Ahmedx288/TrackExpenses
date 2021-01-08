@@ -43,6 +43,10 @@ $('#form-add-new-vendor').validate({
             }
         });
     },
+    errorElement: "div",
+    errorPlacement: function (error, element) {
+        error.insertAfter(element.parent());
+    }
 
 });
 
@@ -109,6 +113,10 @@ $('#form-add-new-vendor-location').validate({
                 });
             }
         });
+    },
+    errorElement: "div",
+    errorPlacement: function (error, element) {
+        error.insertAfter(element.parent());
     }
 
 });
@@ -174,6 +182,10 @@ $('#form-add-new-customer').validate({
             }
         });
     },
+    errorElement: "div",
+    errorPlacement: function (error, element) {
+        error.insertAfter(element.parent());
+    }
 
 });
 
@@ -227,6 +239,10 @@ $('#form-add-new-product').validate({
                 $('#form-add-new-product')[0].reset();
             }
         });
+    },
+    errorElement: "div",
+    errorPlacement: function (error, element) {
+        error.insertAfter(element.parent());
     }
 });
 
@@ -287,6 +303,10 @@ $('#form-add-new-product-category').validate({
                 });
             }
         });
+    },
+    errorElement: "div",
+    errorPlacement: function (error, element) {
+        error.insertAfter(element.parent());
     }
 });
 
@@ -332,5 +352,9 @@ $('#form-add-new-invoice-type').validate({
                 });
             }
         });
+    },
+    errorElement: "div",
+    errorPlacement: function (error, element) {
+        error.insertAfter(element.parent());
     }
 });

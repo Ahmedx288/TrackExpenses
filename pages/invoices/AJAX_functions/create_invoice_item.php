@@ -19,12 +19,14 @@
                 echo '</div>';
 
                 echo '<div class="col-3">';
-                    echo "<select type='text' class='form-control unit-item' id='item-no-${item_no}' name='item-no-${item_no}' required>";
-                            echo '<option hidden disabled selected value=""> -- Select an Item -- </option>';
-                        while($row = $res->fetch_assoc()) {
-                            echo "<option value=" . $row["id"] . ">" . $row['name_'] . "</option>";
-                        }
-                    echo '</select>';
+                    echo "<div class='dummy'> <!--positioning error message-->";
+                        echo "<select type='text' class='form-control unit-item' id='item-no-${item_no}' name='item-no-${item_no}' required>";
+                                echo '<option hidden disabled selected value=""> -- Select an Item -- </option>';
+                            while($row = $res->fetch_assoc()) {
+                                echo "<option value=" . $row["id"] . ">" . $row['name_'] . "</option>";
+                            }
+                        echo '</select>';
+                    echo '</div>';
                 echo '</div>';
 
                 print "
@@ -49,7 +51,10 @@
                     </div>
 
                     <div class='col-2'>
-                        <input type='number' inputmode='decimal' class='form-control unit-total-price' name='unit${item_no}-total-price' value='0' min='0.5' readonly required>
+                        <div class='dummy'> <!--positioning error message-->
+                            <input type='number' inputmode='decimal' class='form-control unit-total-price' 
+                                name='unit${item_no}-total-price' value='0' min='0.5' readonly required>
+                        </div>
                     </div>"
                 ;
 

@@ -16,8 +16,9 @@
 
                     <div class='row'>
                         <div class='col'>
-                            <label for='new-vendor-name'>Vendor Name:</label>
-                            <input type='text' id='new-vendor-name' name='new-vendor-name' required>
+                            <label for='new-vendor-name'>Vendor Name:
+                                <input type='text' id='new-vendor-name' name='new-vendor-name' required>
+                            </label>
                         </div>
                     </div>
 

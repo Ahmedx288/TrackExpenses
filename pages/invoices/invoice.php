@@ -76,7 +76,9 @@
 
                 <div class="col-6">
                     <label for="date-purchased">Date:</label>
-                    <input type="date" id="date-purchased" name="date-purchased" required>
+                    <div class="custom-control custom-control-inline">
+                        <input type="date" id="date-purchased" name="date-purchased" required>
+                    </div>
                 </div>
 
             </div>
@@ -94,7 +96,9 @@
 
                 <div class="col-6">
                     <label for="time-purchased">Time:</label>
-                    <input type="time" id="time-purchased" name="time-purchased" value="00:00:01" required>
+                    <div class="custom-control custom-control-inline">
+                        <input type="time" id="time-purchased" name="time-purchased" value="00:00:01" required>
+                    </div>
                 </div>
 
             </div>
@@ -175,11 +179,13 @@
 
                 <div class="col-3">
                     <label for="invoice-payment-method">Invoice Payment Method:</label>
+                    <div class="dummy"> <!--positioning error message-->
                         <select class="form-control" id="invoice-payment-method" name="invoice-payment-method" required>
                             <option hidden disabled selected value=""> -- Select a Method -- </option>
                             <option value="cash">Cash</option>
                             <option value="electronic">Electronic</option>
                         </select>
+                    </div>
                 </div>
 
                 <div class="col-2 offset 1">
