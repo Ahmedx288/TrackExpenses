@@ -18,7 +18,8 @@
                         <div class='col'>
                             <label for='new-customer-fName'>First Name:</label>
                             <div class="custom-control custom-control-inline"> <!--positioning error message-->
-                                <input type='text' id='new-customer-fName' name='new-customer-fName' onkeypress="return /[a-z]/i.test(event.key)" required>
+                                <input type='text' id='new-customer-fName' name='new-customer-fName' 
+                                    onkeydown='return !(/[0-9\!@#$%^&*()+=\-|~<>{}\/\"\[\]\\:?؟;.,`_]/i.test(event.key));' required>
                             </div>
                         </div>
 
@@ -41,14 +42,16 @@
                         <div class='col'>
                             <label for='new-customer-lName'>Last Name:</label>
                             <div class="custom-control custom-control-inline"> <!--positioning error message-->
-                                <input type='text' id='new-customer-lName' name='new-customer-lName' onkeypress="return /[a-z]/i.test(event.key)" required>
+                                <input type='text' id='new-customer-lName' name='new-customer-lName'
+                                    onkeydown='return !(/[0-9\!@#$%^&*()+=\-|~<>{}\/\"\[\]\\:?؟;.,`_]/i.test(event.key));' required>
                             </div>
                         </div>
 
                         <div class='col'>
                             <label for='new-customer-age'>Age:</label>
                             <div class="custom-control custom-control-inline"> <!--positioning error message-->
-                                <input type='number' min="5" id='new-customer-age' name='new-customer-age' required>
+                                <input type='number' min="5" id='new-customer-age' name='new-customer-age' 
+                                    onkeydown='return /[0-9]/i.test(event.key)' required>
                             </div>
                         </div>
                     </div>

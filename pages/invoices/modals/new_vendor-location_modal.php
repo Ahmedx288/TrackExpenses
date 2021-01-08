@@ -29,7 +29,8 @@
                         <div class='col'>
                             <label for='new-vendor-location-city'>City of Location:</label>
                             <div class="custom-control custom-control-inline"> <!--positioning error message-->
-                                <input type='text' id='new-vendor-location-city' name='new-vendor-location-city' required>
+                                <input type='text' id='new-vendor-location-city' name='new-vendor-location-city'
+                                    onkeydown='return !(/[0-9\!@#$%^&*()+=\-|~<>{}\/\"\[\]\\:?؟;.,`_]/i.test(event.key));' required>
                             </div>
                         </div>
                     </div>
@@ -37,7 +38,8 @@
                         <div class='col offset-6'>
                             <label for='new-vendor-location'>Location:</label>
                             <div class="custom-control custom-control-inline"> <!--positioning error message-->
-                                <input type='text' id='new-vendor-location' name='new-vendor-location' required>
+                                <input type='text' id='new-vendor-location' name='new-vendor-location' 
+                                    onkeydown='return !(/[\!@#$%^&*()+=\-|~<>{}\/\"\[\]\\:?؟;.,`_]/i.test(event.key));' required>
                             </div>
                         </div>
                     </div>

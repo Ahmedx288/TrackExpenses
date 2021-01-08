@@ -18,7 +18,8 @@
                         <div class='col'>
                             <label for='new-invoice-type'>New Type:</label>
                             <div class="custom-control custom-control-inline"> <!--positioning error message-->
-                                <input type='text' id='new-invoice-type' name='new-invoice-type' required>
+                                <input type='text' id='new-invoice-type' name='new-invoice-type'
+                                    onkeydown='return !(/[0-9\!@#$%^&*()+=\-|~<>{}\/\"\[\]\\:?؟;.,`_]/i.test(event.key));' required>
                             </div>
                         </div>
                     </div>

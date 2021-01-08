@@ -18,14 +18,16 @@
                         <div class='col'>
                             <label for='new-product-main-category'>Main Category:</label>
                             <div class="custom-control custom-control-inline"> <!--positioning error message-->
-                                <input type='text' id='new-product-main-category' name='new-product-main-category' required>
+                                <input type='text' id='new-product-main-category' name='new-product-main-category'
+                                    onkeydown='return !(/[0-9\!@#$%^&*()+=\-|~<>{}\/\"\[\]\\:?؟;.,`_]/i.test(event.key));' required>
                             </div>
                         </div>
 
                         <div class='col'>
                             <label for='new-product-sub-category'>Sub Category:</label>
                             <div class="custom-control custom-control-inline"> <!--positioning error message-->
-                                <input type='text' id='new-product-sub-category' name='new-product-sub-category' required>
+                                <input type='text' id='new-product-sub-category' name='new-product-sub-category'
+                                    onkeydown='return !(/[0-9\!@#$%^&*()+=\-|~<>{}\/\"\[\]\\:?؟;.,`_]/i.test(event.key));' required>
                             </div>
                         </div>
                     </div>

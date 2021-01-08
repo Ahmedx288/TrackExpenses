@@ -18,7 +18,8 @@
                         <div class='col-6'>
                             <label for='new-product-name'>Product Name:</label>
                             <div class="custom-control custom-control-inline"> <!--positioning error message-->
-                                <input type='text' id='new-product-name' name='new-product-name' required>
+                                <input type='text' id='new-product-name' name='new-product-name'
+                                 onkeydown='return !(/[\!@#$%^&*=|~<>{}\/\"\[\]\\:?؟;.,`_]/i.test(event.key));' required>
                             </div>
                         </div>
 
@@ -39,7 +40,8 @@
                         <div class='col'>
                             <label for='new-product-trade-mark'>Trade Mark:</label>
                             <div class="custom-control custom-control-inline"> <!--positioning error message-->
-                                <input type='text' id='new-product-trade-mark' name='new-product-trade-mark' onkeypress="return /[a-z]/i.test(event.key)" required>
+                                <input type='text' id='new-product-trade-mark' name='new-product-trade-mark' 
+                                    onkeydown='return !(/[0-9\!@#$%^&*()+=\-|~<>{}\/\"\[\]\\:?؟;.,`_]/i.test(event.key));' required>
                             </div>
                         </div>
 

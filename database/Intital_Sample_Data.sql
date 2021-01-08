@@ -51,8 +51,8 @@ VALUES
 INSERT INTO invoice (customer_id, vendor_id, location_id, invoice_type_id, payment_date, payment_time, payment_method)
 VALUES
 	(1, 1, 1, 1, DATE '2020-09-04', '07:54:35', 'cash'),			#AHMED, Buys from Khair-zman(loc_id: 1) on invoice 1 (grocery)
-    (3, 2, 3, 2, DATE '2020-11-04', '10:45:17', 'electronic'),		#Hossam, Buys from Buffalo(loc_id: 3) on invoice 2	  (fast food)
-    (2, 3, 4, 3, DATE '2020-09-07', '11:30:28', 'Cash');			#Eslam, Buys from Farghaly(loc_id: 4) on invoice 3	  (snacks)
+    (3, 2, 3, 2, DATE '2020-11-04', '10:45:17', 'electronic'),		#Eslam, Buys from Buffalo(loc_id: 3) on invoice 2	  (fast food)
+    (2, 3, 4, 3, DATE '2020-09-07', '11:30:28', 'Cash');			#Hossam, Buys from Farghaly(loc_id: 4) on invoice 3	  (snacks)
  
 
 INSERT INTO invoice_item (invoice_id, product_id, price, quantity, total_discount)

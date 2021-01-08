@@ -7,7 +7,7 @@ ___
 |**Overview**|The idea itself and how it lead to the creation of the project.|
 |**ERD**|The Entity Relationship Diagram of the Database, which is the core of the project.|
 |**Logical Model**|The actual tables in the database in the thrid form of Normalization.|
-|**Prototypes**|Freehand sketches for Desktop and Mobile views.|
+|**Prototypes**|Sketches for Website Desktop views.|
 ___
 ## Overview
 ![The big picture of expenses and invoices](database/images/general_overview.png)
@@ -42,6 +42,9 @@ Database tables reduced to the thrid form of normalization process
 | |               |                                                                                       |FK: customer_id->customer(id), vendor_id->vendor(id), location_id->location(id), invoice_type_id->invoice_type(id)|
 |9|invoice_item|(**invoice_id**, **product_id**, price, quantity, total_discount, total_pay)|PK: (invoice_id, product_id)                        |
 | |               |                                                                         |FK: invoice_id->invoice(id), product_id->product(id)|
+___
+## Prototypes
+![Invoice Page](database/images/invoice_page.png)
 ___
 **Installations:**\
 You only need a server to host the website files and database to connect to it.

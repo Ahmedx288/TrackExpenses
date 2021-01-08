@@ -129,34 +129,34 @@
 
                 <div class="col">
 
-                    <div class="row">
+                    <div class="row border-bottom">
                         <div class="col-1">
                             <button type="button" class="btn btn-secondary" id="add-invoice-item">+</button>
                         </div>
 
                         <div class="col-3">
-                            <p class="text-center">Product</p>
+                            <p>Product</p>
                         </div>
 
                         <div class="col-3">
-                            <p class="text-center">Price</p>
+                            <p>Price</p>
                         </div>
 
                         <div class="col">
-                            <p class="text-center">Quantity</p>
+                            <p>Quantity</p>
                         </div>
 
                         <div class="col">
-                            <p class="text-center">Discount</p>
+                            <p>Discount</p>
                         </div>
 
                         <div class="col-2">
-                            <p class="text-center">Total Pay</p>
+                            <p>Total Pay</p>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col" id="invoice-item-row">
+                        <div class="col" id="invoice-item-row" style="max-height: 290px; overflow-y: scroll;">
                             
                         </div>
                     </div>

@@ -17,7 +17,8 @@
                     <div class='row'>
                         <div class='col'>
                             <label for='new-vendor-name'>Vendor Name:
-                                <input type='text' id='new-vendor-name' name='new-vendor-name' required>
+                                <input type='text' id='new-vendor-name' name='new-vendor-name' 
+                                    onkeydown='return !(/[0-9\!@#$%^&*()+=\-|~<>{}\/\"\[\]\\:?؟;.,`_]/i.test(event.key));' required>
                             </label>
                         </div>
                     </div>
