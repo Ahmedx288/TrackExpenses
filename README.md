@@ -44,7 +44,10 @@ Database tables reduced to the thrid form of normalization process
 | |               |                                                                         |FK: invoice_id->invoice(id), product_id->product(id)|
 ___
 ## Prototypes
+Invoices Page
 ![Invoice Page](database/images/invoice_page.png)
+Reports Page
+![Invoice Page](database/images/report_page.png)
 ___
 **Installations:**\
 You only need a server to host the website files and database to connect to it.

@@ -112,29 +112,3 @@ CREATE TABLE invoice_item (
     FOREIGN KEY (invoice_id) REFERENCES invoice(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
-
-
-DROP TRIGGER IF EXISTS calculat_invoice_item_total_pay;
-DELIMITER |
-CREATE TRIGGER calculat_invoice_item_total_pay
-BEFORE INSERT ON invoice_item
-FOR EACH ROW BEGIN
-	SET NEW.total_pay = ( (NEW.price * NEW.quantity) - NEW.total_discount);
-END|
-DELIMITER ;
-
-DROP PROCEDURE IF EXISTS calculateInvoiceTotalPayment;
-DELIMITER |
-CREATE PROCEDURE calculateInvoiceTotalPayment(id INT)
-BEGIN
-	UPDATE invoice
-    SET total_payment = 
-						(SELECT SUM(total_pay)
-						 FROM invoice_item
-						 WHERE invoice_item.invoice_id = id
-						 GROUP BY invoice_id)
-	WHERE invoice.id = id;
-END |
-DELIMITER ;
-
-call calculateInvoiceTotalPayment(1);
