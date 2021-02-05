@@ -5,6 +5,15 @@
 <?php include "modals/new_vendor-location_modal.php"; ?>
 <?php include "modals/new_invoice-type_modal.php"; ?>
 
+<div class="row">
+    <div class="col-4">
+
+        <a class="btn btn-warning navbar-btn2 btn-lg navbar-btn-main"
+            href="<?php echo $base_url; ?>index.php?page=report">Go to Reports</a>
+
+    </div>
+</div>
+
 <div class="row border">
     <div class="col-2 border">
         

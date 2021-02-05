@@ -1,5 +1,14 @@
 <?php include "modals/invoice_inspection_modal.php"; ?>
 
+<div class="row">
+    <div class="col">
+
+        <a class="btn btn-warning navbar-btn2 btn-lg navbar-btn-main"
+            href="<?php echo $base_url; ?>index.php?page=invoice">Go to Invoices</a>
+
+    </div>
+</div>
+
 <div class="row border">
     <div class="col-10 offset-1">
 
