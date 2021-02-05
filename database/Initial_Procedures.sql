@@ -31,10 +31,17 @@ DELIMITER |
 CREATE PROCEDURE create_invoices_overview(customerID INT, vendorID INT)
 BEGIN
 	SELECT invoice.id AS "ID", customer.first_name AS "BuyerF", customer.last_name AS "BuyerL",
-	   vendor.name_ AS "Store", invoice_type.type_ AS "Type",
-       invoice.payment_date AS "DATE", invoice.payment_time AS "TIME"
+		vendor.name_ AS "Store", invoice_type.type_ AS "Type",
+		invoice.payment_date AS "DATE", invoice.payment_time AS "TIME"
 	FROM invoice JOIN invoice_type JOIN customer JOIN vendor
-	ON invoice.customer_id = customer.id AND invoice.invoice_type_id = invoice_type.id AND invoice.vendor_id = vendor.id;
+	ON invoice.customer_id = customer.id AND invoice.invoice_type_id = invoice_type.id AND invoice.vendor_id = vendor.id
+    WHERE
+		CASE
+			WHEN customerID > 0 AND vendorID > 0 THEN customer.id = customerID AND vendor.id = vendorID
+			WHEN customerID = 0 AND vendorID = 0 THEN invoice.id > 0 #dummy condition
+			WHEN customerID > 0 AND vendorID = 0 THEN customer.id = customerID
+			WHEN customerID = 0 AND vendorID > 0 THEN vendor.id = vendorID
+		END;
 END |
 DELIMITER ;
 

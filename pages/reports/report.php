@@ -1,3 +1,5 @@
+<?php include "modals/invoice_inspection_modal.php"; ?>
+
 <div class="row border">
     <div class="col-10 offset-1">
 
@@ -90,7 +92,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col" id="search-item-row" style="max-height: 290px; overflow-y: scroll;">
+                    <div class="col" id="search-item-rows" style="max-height: 290px; overflow-y: scroll;">
                                 
                     </div>
                 </div>

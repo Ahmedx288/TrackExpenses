@@ -42,7 +42,8 @@
                     echo '</div>';
 
                     echo '<div class="col">';
-                        echo '<button type="button" class="btn btn-primary btn-block more-on-invoice">!</button>';
+                        echo '<button type="button" class="btn btn-primary btn-block more-on-invoice"
+                                data-toggle="modal" data-target="#modal-invoice-details">!</button>';
                     echo '</div>';
 
                 echo "</div>";

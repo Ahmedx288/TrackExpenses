@@ -13,3 +13,4 @@
 <!--custom report scripts-->
 <script src="<?php echo $base_url; ?>pages/reports/scripts/main_dynamic_updates.js"></script>
 <script src="<?php echo $base_url; ?>pages/reports/scripts/issue_search_query.js"></script>
+<script src="<?php echo $base_url; ?>pages/reports/scripts/inspect_an_invoice.js"></script>

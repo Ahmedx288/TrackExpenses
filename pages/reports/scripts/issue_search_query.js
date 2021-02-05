@@ -13,7 +13,7 @@ $('#search-main-information').validate({
             },
 
             success: function (data) {
-                $('#search-item-row').append(data);
+                $('#search-item-rows').html(data);
             }
         });
     }
