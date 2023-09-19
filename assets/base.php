@@ -1,5 +1,3 @@
 <?php
 
-    $base_url = "http://localhost/TrackExpenses/";
-
- ?>
+    $base_url = "https://localhost/TrackExpenses/";

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
 
-    <head>
-        <title>Track Your Expenses</title>
-        <link rel="icon" href="assets/title_icon.png" type="image/png">
+<head>
+    <title>Track Your Expenses</title>
+    <link rel="icon" href="assets/title_icon.png" type="image/png">
 
-        <?php include 'assets/head_includes.php'; ?>
+    <?php include 'assets/head_includes.php'; ?>
 
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <!-- Whole page contenet -->
-        <div class="container p-2 mx-auto">
+    <!-- Whole page content -->
+    <div class="container p-2 mx-auto">
 
-            <?php include 'content.php' ?>
+        <?php include 'content.php' ?>
 
-        </div> <!-- End of the primary container -->
+    </div> <!-- End of the primary container -->
 
-        <?php include 'assets/scripts.php'; ?>
+    <?php include 'assets/scripts.php'; ?>
 
-    </body>
+</body>
 
 </html>
